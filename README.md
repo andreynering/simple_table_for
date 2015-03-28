@@ -12,12 +12,12 @@ gem 'simple_table_for'
 Parameters:
 
 ```ruby
-table_for(record, headers, options, &block)
+table_for(collection, headers, options, &block)
 ```
 
 Usage:
 
-```ruby
+```erb
 <%= table_for @posts, %w[Title Text Date Comments\ count -] do |post| %>
   <%= field post.title %>
   <%= field post.text %>
@@ -29,7 +29,7 @@ Usage:
 
 You can optionaly add an id or classes to tables and fields:
 
-```ruby
+```erb
 <%= table_for @posts, %w[Title -], id: 'posts-table', class: 'table' do |post| %>
   <%= field post.title, class: 'post-title' %>
   <%= field link_to('View', post), class: 'view' %>
@@ -37,3 +37,11 @@ You can optionaly add an id or classes to tables and fields:
 ```
 
 This project uses MIT-LICENSE.
+
+## Contributing
+
+1. Fork it ( https://github.com/andreynering/simple_table_for/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
