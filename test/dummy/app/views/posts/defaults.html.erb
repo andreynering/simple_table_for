@@ -1,0 +1,5 @@
+<%= table_for @posts, %w[Title Text Link] do |p| %>
+  <%= field p.title %>
+  <%= field p.text %>
+  <%= field link_to('View', p) %>
+<% end %>
