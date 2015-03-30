@@ -27,13 +27,22 @@ Usage:
 <% end %>
 ```
 
-You can optionaly add an id or classes to tables and fields:
+You can optionally add an id or classes to tables and fields:
 
 ```erb
 <%= table_for @posts, %w[Title -], id: 'posts-table', class: 'table' do |post| %>
   <%= field post.title, class: 'post-title' %>
   <%= field link_to('View', post), class: 'view' %>
 <% end %>
+```
+
+You can also set default id and class for tables:
+
+```ruby
+# application.rb
+class Application < Rails:Application
+  SimpleTableFor::Defaults.set id: 'table-id', class: 'table table-condensed table-striped table-bordered'
+end
 ```
 
 This project uses MIT-LICENSE.

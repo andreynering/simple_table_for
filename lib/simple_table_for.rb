@@ -41,11 +41,15 @@ module SimpleTableFor
     end
   end
 
+  # This class handles the default options
   class Defaults
+    # Get de default options
     def self.get
       @defaults || defaults
     end
 
+    # Set the default options
+    #   SimpleTableFor::Defaults.set id: 'id', class: 'class'
     def self.set(options)
       @defaults = defaults.merge options
     end
