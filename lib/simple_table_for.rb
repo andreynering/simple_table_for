@@ -1,13 +1,12 @@
 module SimpleTableFor
   module Helpers
+    # Creates a table field
+    # See table for details
     def field(content, options = {})
-      <<-TD.html_safe
-        <td id='#{options[:id]}' class='#{options[:class]}'>
-          #{content}
-        </td>
-      TD
+      content_tag :td, content, id: options[:id], class: options[:class]
     end
 
+    # Creates a table
     # Usage:
     #   <%= table_for @posts, %w[Title Text Date Comments\ count -] do |post| %>
     #     <%= field post.title %>
@@ -16,28 +15,26 @@ module SimpleTableFor
     #     <%= field post.comments.count %>
     #     <%= field link_to('View', post) %>
     #   <% end %>
-    def table_for(collection, heads, options = {})
-      heads = heads.map{|h| "<th>#{h}</th>".html_safe }.join('')
-
-      rows = collection.map do |obj|
-        "<tr>#{capture{ yield obj }}</tr>".html_safe
-      end.join('')
-
+    def table_for(collection, headers, options = {})
       options = Defaults.get.merge options
 
-      <<-TABLE.html_safe
-        <table id='#{options[:id]}' class='#{options[:class]}'>
-          <thead>
-            <tr>
-              #{heads}
-            </tr>
-          </thead>
+      content_tag :table, id: options[:id], class: options[:class] do
+        concat (content_tag :thead do
+          content_tag :tr do
+            headers.map do |header|
+              concat(content_tag :th, header)
+            end
+          end
+        end)
 
-          <tbody>
-            #{rows}
-          </tbody>
-        </table>
-      TABLE
+        concat (content_tag :tbody do
+          collection.map do |obj|
+            concat (content_tag :tr do
+              capture{ yield obj }
+            end)
+          end
+        end)
+      end
     end
   end
 
