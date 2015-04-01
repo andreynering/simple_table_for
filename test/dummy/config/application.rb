@@ -21,6 +21,9 @@ module Dummy
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.simple_table_for.defaults = {
+      class: 'default-class'
+    }
   end
 end
-

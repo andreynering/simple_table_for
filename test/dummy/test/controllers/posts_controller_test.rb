@@ -21,13 +21,10 @@ class PostsControllerTest < ActionController::TestCase
     end
   end
 
-  test 'should render table with defaults' do
-    old_defaults = SimpleTableFor::Defaults.get
-    SimpleTableFor::Defaults.set({id: 'default-id', class: 'default-class'})
-
+  test 'should render table with defaults (set in application.rb)' do
     get :index, template: :defaults
 
-    assert_select 'table#default-id.default-class' do
+    assert_select 'table.default-class' do
       assert_select 'thead' do
         assert_select 'tr' do
           assert_select 'th'
@@ -40,7 +37,5 @@ class PostsControllerTest < ActionController::TestCase
         end
       end
     end
-
-    SimpleTableFor::Defaults.set old_defaults
   end
 end
