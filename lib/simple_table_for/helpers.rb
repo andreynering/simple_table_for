@@ -1,17 +1,17 @@
 module SimpleTableFor
   module Helpers
-    # Creates a table field
-    # See table_for for details
+    # Generates a table field.
+    # See table_for for details.
     def field(content, options = {})
       content_tag :td, content, options
     end
 
-    # Creates a table
+    # Generates a table.
     # Usage:
-    #   <%= table_for @posts, %w[Title Text Date Comments\ count -] do |post| %>
+    #   <%= table_for @posts, %w[Title Text Date Comments\ count -], id: 'table-id', class: 'table-class' do |post| %>
     #     <%= field post.title %>
     #     <%= field post.text %>
-    #     <%= field post.date %>
+    #     <%= field post.created_at %>
     #     <%= field post.comments.count %>
     #     <%= field link_to('View', post) %>
     #   <% end %>

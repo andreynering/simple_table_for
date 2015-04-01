@@ -1,27 +1,21 @@
 SimpleTableFor
 ==============
 
-A simple helper to generate tables in Rails applications.
+A simple helper to generate HTML tables in Rails applications.
 
-In your Gemfile:
-
-```ruby
-gem 'simple_table_for'
-```
-
-Parameters:
+## Installation
 
 ```ruby
-table_for(collection, headers, options, &block)
+gem 'simple_table_for', '~> 0.2.0'
 ```
 
-Usage:
+## Usage
 
 ```erb
 <%= table_for @posts, %w[Title Text Date Comments\ count -] do |post| %>
   <%= field post.title %>
   <%= field post.text %>
-  <%= field post.date %>
+  <%= field post.created_at %>
   <%= field post.comments.count %>
   <%= field link_to('View', post) %>
 <% end %>
@@ -36,7 +30,9 @@ You can optionally add an id or classes to tables and fields:
 <% end %>
 ```
 
-You can also set default id and class for tables:
+# Setting default options
+
+You can also set a default class for tables:
 
 ```ruby
 # application.rb
