@@ -41,7 +41,9 @@ You can also set default id and class for tables:
 ```ruby
 # application.rb
 class Application < Rails:Application
-  SimpleTableFor::Defaults.set id: 'table-id', class: 'table table-condensed table-striped table-bordered'
+  config.simple_table_for.defaults = {
+    class: 'table table-condensed table-striped table-bordered'
+  }
 end
 ```
 
