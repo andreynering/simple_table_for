@@ -8,12 +8,12 @@ module SimpleTableFor
 
     # Generates a table.
     # Usage:
-    #   <%= table_for @posts, %w[Title Text Date Comments\ count -], id: 'table-id', class: 'table-class' do |post| %>
-    #     <%= field post.title %>
-    #     <%= field post.text %>
-    #     <%= field post.created_at %>
-    #     <%= field post.comments.count %>
-    #     <%= field link_to('View', post) %>
+    #   <%= table_for @users, %w(Name Email Registration\ date Comments\ count -), id: 'table-id', class: 'table-class' do |user| %>
+    #     <%= field user.name %>
+    #     <%= field user.email %>
+    #     <%= field user.created_at %>
+    #     <%= field user.comments.count %>
+    #     <%= field link_to('View', user) %>
     #   <% end %>
     def table_for(collection, headers, options = {})
       options = Defaults.get.merge options

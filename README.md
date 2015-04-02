@@ -1,7 +1,7 @@
 SimpleTableFor
 ==============
 
-A simple helper to generate HTML tables in Rails applications.
+Generate HTML tables in a simple and clean way.
 
 ## Installation
 
@@ -12,21 +12,28 @@ gem 'simple_table_for', '~> 0.2.0'
 ## Usage
 
 ```erb
-<%= table_for @posts, %w[Title Text Date Comments\ count -] do |post| %>
-  <%= field post.title %>
-  <%= field post.text %>
-  <%= field post.created_at %>
-  <%= field post.comments.count %>
-  <%= field link_to('View', post) %>
+<%= table_for @users, %w(Name Email Registration\ date Comments\ count -) do |user| %>
+  <%= field user.name %>
+  <%= field user.email %>
+  <%= field user.created_at %>
+  <%= field user.comments.count %>
+  <%= field link_to('View', user) %>
 <% end %>
 ```
+
+The above will generate a table like:
+
+| Name | Email         | Registration date | Comments count  | -         |
+| ---- | ------------- | ----------------- | --------------- | --------- |
+| John | john@john.com | 01/01/2015        | 15              | [View](#) |
+| Mark | mark@mark.com | 02/02/2015        | 34              | [View](#) |
 
 You can optionally add an id or classes to tables and fields:
 
 ```erb
-<%= table_for @posts, %w[Title -], id: 'posts-table', class: 'table' do |post| %>
-  <%= field post.title, class: 'post-title' %>
-  <%= field link_to('View', post), class: 'view' %>
+<%= table_for @users, %w(Name -), id: 'users-table', class: 'table' do |user| %>
+  <%= field user.name, class: 'user-name' %>
+  <%= field link_to('View', user), class: 'user-link' %>
 <% end %>
 ```
 
