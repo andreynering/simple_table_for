@@ -1,5 +1,5 @@
-SimpleTableFor
-==============
+Simple Table For helper
+=======================
 
 Generate HTML tables in a simple and clean way.
 
@@ -37,7 +37,7 @@ You can optionally add an id or classes to tables and fields:
 <% end %>
 ```
 
-# Setting default options
+## Setting default options
 
 You can also set a default class for tables:
 

@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ['andrey.nering@gmail.com']
   s.homepage    = 'https://github.com/andreynering/simple_table_for'
   s.summary     = 'Simple helper for creating HTML tables in Rails'
-  s.description = 'Generate HTML tables in a simple and clean way'
+  s.description = 'Simple Table For helper for Rails let you generate HTML tables in a simple and clean way'
   s.license     = 'MIT'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
