@@ -12,7 +12,7 @@ gem 'simple_table_for', '~> 0.2.0'
 ## Usage
 
 ```erb
-<%= table_for @users, %w(Name Email Registration\ date Comments\ count -) do |user| %>
+<%= table_for @users, [:name, :email, 'Registration date', 'Comments count', '-'], model: User do |user| %>
   <%= field user.name %>
   <%= field user.email %>
   <%= field user.created_at %>
@@ -23,15 +23,20 @@ gem 'simple_table_for', '~> 0.2.0'
 
 The above will generate a table like:
 
-| Name | Email         | Registration date | Comments count  | -         |
-| ---- | ------------- | ----------------- | --------------- | --------- |
-| John | john@john.com | 01/01/2015        | 15              | [View](#) |
-| Mark | mark@mark.com | 02/02/2015        | 34              | [View](#) |
+| First name | Email         | Registration date | Comments count  | -         |
+| ---------- | ------------- | ----------------- | --------------- | --------- |
+| John       | john@john.com | 01/01/2015        | 15              | [View](#) |
+| Mark       | mark@mark.com | 02/02/2015        | 34              | [View](#) |
+
+The second parameter is a array of headers. For a Symbol header, the helper
+will get the localizated name in `config/locales` folder. The `model` option
+should be informed in this case. For a String header, the helper will just
+print it as is.
 
 You can optionally add an id or classes to tables and fields:
 
 ```erb
-<%= table_for @users, %w(Name -), id: 'users-table', class: 'table' do |user| %>
+<%= table_for @users, [:name, '-'], model: User, id: 'users-table', class: 'table' do |user| %>
   <%= field user.name, class: 'user-name' %>
   <%= field link_to('View', user), class: 'user-link' %>
 <% end %>
@@ -44,6 +49,7 @@ You can also set a default class for tables:
 ```ruby
 # application.rb
 class Application < Rails:Application
+  # for a Bootstrap table
   config.simple_table_for.defaults = {
     class: 'table table-condensed table-striped table-bordered'
   }
