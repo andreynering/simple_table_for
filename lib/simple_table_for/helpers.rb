@@ -8,7 +8,7 @@ module SimpleTableFor
 
     # Generates a table.
     # Usage:
-    #   <%= table_for @users, %w(Name Email Registration\ date Comments\ count -), id: 'table-id', class: 'table-class' do |user| %>
+    #   <%= table_for @users, [:name, :email, 'Registration Date', 'Comments count', '-'], model: User, id: 'table-id', class: 'table-class' do |user| %>
     #     <%= field user.name %>
     #     <%= field user.email %>
     #     <%= field user.created_at %>
@@ -22,7 +22,12 @@ module SimpleTableFor
         concat (content_tag :thead do
           content_tag :tr do
             headers.map do |header|
-              concat(content_tag :th, header)
+              case header
+              when String
+                concat(content_tag :th, header)
+              when Symbol
+                concat(content_tag :th, options[:model].human_attribute_name(header))
+              end
             end
           end
         end)

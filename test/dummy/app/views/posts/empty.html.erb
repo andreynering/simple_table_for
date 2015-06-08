@@ -1,0 +1,7 @@
+<% @posts = @posts.where('0 = 1') %>
+
+<%= table_for @posts, [:title, :text, 'View Link'], model: Post do |p| %>
+  <%= field p.title %>
+  <%= field p.text %>
+  <%= field link_to('View', p) %>
+<% end %>

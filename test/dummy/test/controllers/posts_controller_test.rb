@@ -19,6 +19,10 @@ class PostsControllerTest < ActionController::TestCase
         end
       end
     end
+
+    assert_match(/Post\ Text/, @response.body)
+    assert_match(/Post\ Title/, @response.body)
+    assert_match(/View\ Link/, @response.body)
   end
 
   test 'should render table with defaults (set in application.rb)' do
@@ -36,6 +40,16 @@ class PostsControllerTest < ActionController::TestCase
           assert_select 'td'
         end
       end
+    end
+
+    assert_match(/Post\ Text/, @response.body)
+    assert_match(/Post\ Title/, @response.body)
+    assert_match(/View\ Link/, @response.body)
+  end
+
+  test 'should render empty table' do
+    assert_nothing_raised do
+      get :index, template: :empty
     end
   end
 end
