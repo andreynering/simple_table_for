@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/andreynering/simple_table_for.svg)](https://travis-ci.org/andreynering/simple_table_for)
+
 Simple Table For helper
 =======================
 
