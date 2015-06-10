@@ -1,3 +1,4 @@
 rvm:
   - 2.2.2
-script: rake test
+env: CODECLIMATE_REPO_TOKEN=dc5f0d7d8808c6690336b38e4c176ef71b801bcb0a63d276e59540386eadbde3
+before_script: bundle exec rake -f test/dummy/Rakefile db:create db:migrate RAILS_ENV=test

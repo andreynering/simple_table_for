@@ -1,4 +1,7 @@
+[![Gem Version](https://badge.fury.io/rb/simple_table_for.svg)](http://badge.fury.io/rb/simple_table_for)
 [![Build Status](https://travis-ci.org/andreynering/simple_table_for.svg)](https://travis-ci.org/andreynering/simple_table_for)
+[![Code Climate](https://codeclimate.com/github/andreynering/simple_table_for/badges/gpa.svg)](https://codeclimate.com/github/andreynering/simple_table_for)
+[![Test Coverage](https://codeclimate.com/github/andreynering/simple_table_for/badges/coverage.svg)](https://codeclimate.com/github/andreynering/simple_table_for/coverage)
 
 Simple Table For helper
 =======================
