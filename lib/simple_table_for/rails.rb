@@ -1,5 +1,5 @@
 module SimpleTableFor
-  class ::Application < Rails::Application
+  class Railtie < Rails::Railtie
     config.simple_table_for = ActiveSupport::OrderedOptions.new
     config.simple_table_for.defaults = ActiveSupport::OrderedOptions.new
 
