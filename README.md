@@ -11,7 +11,7 @@ Generate HTML tables in a simple and clean way.
 ## Installation
 
 ```ruby
-gem 'simple_table_for', '~> 0.3.0'
+gem 'simple_table_for'
 ```
 
 ## Usage
