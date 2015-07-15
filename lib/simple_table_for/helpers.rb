@@ -41,5 +41,8 @@ module SimpleTableFor
         end)
       end
     end
+
+    alias simple_table_for table_for
+    alias column field
   end
 end

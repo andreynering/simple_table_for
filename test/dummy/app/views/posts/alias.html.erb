@@ -1,0 +1,5 @@
+<%= simple_table_for @posts, [:title, :text, 'View Link'], model: Post, id: 'the-id', class: 'the-class' do |p| %>
+  <%= column p.title, class: 'title' %>
+  <%= column p.text, class: 'text' %>
+  <%= column link_to('View', p), class: 'link' %>
+<% end %>
