@@ -17,7 +17,7 @@ gem 'simple_table_for'
 ## Usage
 
 ```erb
-<%= table_for @users, [:name, :email, 'Registration date', 'Comments count', '-'], model: User do |user| %>
+<%= table_for @users, [:name, :email, 'Registration date', 'Comments count', '-'] do |user| %>
   <%= field user.name %>
   <%= field user.email %>
   <%= field user.created_at %>
@@ -28,20 +28,21 @@ gem 'simple_table_for'
 
 The above will generate a table like:
 
-| First name | Email         | Registration date | Comments count  | -         |
+| First name | E-mail        | Registration date | Comments count  | -         |
 | ---------- | ------------- | ----------------- | --------------- | --------- |
 | John       | john@john.com | 01/01/2015        | 15              | [View](#) |
 | Mark       | mark@mark.com | 02/02/2015        | 34              | [View](#) |
 
 The second parameter is a array of headers. For a Symbol header, the helper
-will get the localizated name in `config/locales` folder. The `model` option
-should be informed in this case. For a String header, the helper will just
-print it as is.
+will get the localizated name in `config/locales` folder.
+Example: for a `@users` collection and `:name` header it will search for
+'<locale>/activerecord/attributes/user/name'.
+For a String header, the helper will just print it as is.
 
-You can optionally add an id or classes to tables and fields:
+You can optionally give adicional options, like id or classes to tables and fields:
 
 ```erb
-<%= table_for @users, [:name, '-'], model: User, id: 'users-table', class: 'table' do |user| %>
+<%= table_for @users, [:name, '-'], id: 'users-table', class: 'table' do |user| %>
   <%= field user.name, class: 'user-name' %>
   <%= field link_to('View', user), class: 'user-link' %>
 <% end %>
