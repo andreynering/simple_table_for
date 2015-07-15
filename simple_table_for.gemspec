@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ['Andrey Nering']
   s.email       = ['andrey.nering@gmail.com']
   s.homepage    = 'https://github.com/andreynering/simple_table_for'
-  s.summary     = 'Simple helper for creating HTML tables in Rails'
+  s.summary     = 'Simple Table For helper for creating HTML tables in Rails'
   s.description = 'Simple Table For helper for Rails let you generate HTML tables in a simple and clean way'
   s.license     = 'MIT'
 
