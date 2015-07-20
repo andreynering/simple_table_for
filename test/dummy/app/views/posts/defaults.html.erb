@@ -1,4 +1,4 @@
-<%= table_for @posts, [:title, :text, 'View Link'], model: Post do |p| %>
+<%= table_for @posts, [:title, :text, 'View Link'] do |p| %>
   <%= field p.title %>
   <%= field p.text %>
   <%= field link_to('View', p) %>
